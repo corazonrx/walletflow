@@ -70,4 +70,59 @@ router.post("/register", async (req, res) => {
   );
 });
 
+router.post("/login", (req, res) => {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    return res.status(400).json({
+      message: "Email and password are required"
+    });
+  }
+
+  const normalizedEmail = email.toLowerCase().trim();
+
+  db.get(
+    "SELECT * FROM users WHERE email = ?",
+    [normalizedEmail],
+    async (error, user) => {
+      if (error) {
+        return res.status(500).json({
+          message: "Database error"
+        });
+      }
+
+      if (!user) {
+        return res.status(401).json({
+          message: "Invalid email or password"
+        });
+      }
+
+      const passwordMatches = await bcrypt.compare(password, user.password_hash);
+
+      if (!passwordMatches) {
+        return res.status(401).json({
+          message: "Invalid email or password"
+        });
+      }
+
+      const token = jwt.sign(
+        {id: user.id,
+          email: user.email
+        },
+        JWT_SECRET,
+        { expiresIn: "2h" }
+      );
+
+      res.json({
+        message: "Login successful",
+        token,
+        user: {
+          id: user.id,
+          name: user.name,
+          email: user.email
+        }
+      });
+    }
+  );
+});
 module.exports = router;
