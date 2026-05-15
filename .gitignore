@@ -1,0 +1,4 @@
+node_modules/
+server/walletflow.db
+.env
+.DS_Store
