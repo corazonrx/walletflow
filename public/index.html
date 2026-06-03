@@ -8,10 +8,56 @@
   </head>
   <body>
     <main>
-      <h1>WalletFlow</h1>
-      <p>Personal finance dashboard is running.</p>
+      <section class="welcome-screen">
+        <div class="welcome-left">
+          <p class="small-label">WalletFlow Finance Dashboard</p>
+          <h1>You are welcome</h1>
+          <p class="welcome-text">
+            Hit zero once, and it might be 36 apartments instead of one.
+          </p>
+        </div>
+
+        <div class="login-card">
+          <div class="logo-row">
+            <div class="logo-mark">$</div>
+            <div>
+              <h2>WalletFlow</h2>
+              <p id="authSubtitle">Secure personal finance tracker</p>
+            </div>
+          </div>
+
+          <form id="loginForm" class="form-box">
+            <label>Email</label>
+            <input id="loginEmail" type="email" placeholder="Enter your email" required />
+
+            <label>Password</label>
+            <input id="loginPassword" type="password" placeholder="Enter your password" required />
+
+            <button type="submit" class="main-button">Login</button>
+          </form>
+
+          <form id="registerForm" class="form-box hidden">
+            <label>Name</label>
+            <input id="registerName" type="text" placeholder="Your name" required />
+
+            <label>Email</label>
+            <input id="registerEmail" type="email" placeholder="Your email" required />
+
+            <label>Password</label>
+            <input id="registerPassword" type="password" placeholder="Create password" required />
+
+            <button type="submit" class="main-button">Create account</button>
+          </form>
+
+          <button id="authSwitchButton" class="outline-button" type="button">
+            Create account
+          </button>
+
+          <p id="authMessage" class="message"></p>
+        </div>
+      </section>
     </main>
 
-    <script src="app.js"></script>
+    <script src="auth.js"></script>
   </body>
 </html>
