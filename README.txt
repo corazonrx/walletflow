@@ -15,17 +15,6 @@ Users can create an account, log in, add income and expense transactions, view t
 - SQLite database storage
 - localStorage session storage
 - Public currency exchange API integration
-
-## The project uses the free ExchangeRate API endpoint:
+- The project uses the free ExchangeRate API endpoint:
 https://www.exchangerate-api.com/docs/free
-
-## How to Run
-
-Install dependencies:
-```bash
-npm install
-->
-npm start
-->
-http://localhost:3000 (demo account: Email:admin2@gmail.com /// Password:admin2)
     
