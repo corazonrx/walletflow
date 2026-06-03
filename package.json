@@ -1,16 +1,22 @@
 {
   "name": "walletflow",
   "version": "1.0.0",
-  "description": "personal finance tracker",
+  "description": "finance tracker",
   "main": "server/server.js",
-    "scripts": {
+  "scripts": {
     "start": "node server/server.js",
     "dev": "node --watch server/server.js"
   },
-  "keywords": ["finance",
-    "tracker"],
-  "author": "Denys Pavlenko",
-  "license": "ISC",
+  "keywords": [
+    "finance",
+    "tracker",
+    "dashboard",
+    "nodejs",
+    "express",
+    "sqlite"
+  ],
+  "author": "Denys",
+  "license": "MIT",
   "type": "commonjs",
   "dependencies": {
     "bcrypt": "^6.0.0",
