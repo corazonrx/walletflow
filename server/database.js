@@ -1,4 +1,4 @@
-const sqlite3 = require("sqlite3/lib/sqlite3");
+const sqlite3 = require("sqlite3").verbose();
 const path = require("path");
 const dbPath = path.join(__dirname, "walletflow.db");
 
