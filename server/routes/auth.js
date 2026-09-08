@@ -2,10 +2,9 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const db = require("../database");
+const { jwtSecret } = require("../config");
 
 const router = express.Router();
-
-const JWT_SECRET = "walletflow_key";
 
 router.post("/register", async (req, res) => {
   const { name, email, password } = req.body;
@@ -51,7 +50,7 @@ router.post("/register", async (req, res) => {
               id: this.lastID,
               email: normalizedEmail
             },
-            JWT_SECRET,
+            jwtSecret,
             { expiresIn: "2h" }
           );
 
@@ -109,7 +108,7 @@ router.post("/login", (req, res) => {
         {id: user.id,
           email: user.email
         },
-        JWT_SECRET,
+        jwtSecret,
         { expiresIn: "2h" }
       );
 

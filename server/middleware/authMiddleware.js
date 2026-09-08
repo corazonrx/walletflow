@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken");
-
-const JWT_SECRET = "walletflow_key";
+const { jwtSecret } = require("../config");
 
 function authMiddleware(req, res, next) {
   const authHeader = req.headers.authorization;
@@ -20,7 +19,7 @@ function authMiddleware(req, res, next) {
   }
 
   try {
-    const decoded = jwt.verify(token, JWT_SECRET);
+    const decoded = jwt.verify(token, jwtSecret);
     req.user = decoded;
     next();
   } catch (error) {
